@@ -1,0 +1,6 @@
+{
+  "name": "공공기관 AI 교육 행사 홍보 대시보드",
+  "description": "공공기관 생성형 AI 업무혁신 실무교육(2026.10.22) 행사 홍보·모집 성과 분석 및 참가자/리드 관리 대시보드",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
