@@ -411,8 +411,8 @@ to_sun = Vector((math.sin(SUN_AZ) * math.cos(SUN_ELEV),
                  math.cos(SUN_AZ) * math.cos(SUN_ELEV),
                  math.sin(SUN_ELEV)))
 sun_data = bpy.data.lights.new("Sun_Agra_2PM", type='SUN')
-sun_data.energy = 4.2
-sun_data.color = (1.0, 0.80, 0.56)       # 따뜻한 황금빛
+sun_data.energy = 5.0
+sun_data.color = (1.0, 0.68, 0.36)       # 따뜻한 황금빛
 sun_data.angle = math.radians(1.5)       # 부드러운 그림자 가장자리
 sun = bpy.data.objects.new("Sun_Agra_2PM", sun_data)
 sun.rotation_euler = (-to_sun).to_track_quat('-Z', 'Y').to_euler()
@@ -423,8 +423,8 @@ world = scene.world or bpy.data.worlds.new("World")
 scene.world = world
 world.use_nodes = True
 bg = world.node_tree.nodes.get("Background")
-bg.inputs["Color"].default_value = (0.78, 0.70, 0.55, 1.0)
-bg.inputs["Strength"].default_value = 0.55
+bg.inputs["Color"].default_value = (0.95, 0.70, 0.40, 1.0)
+bg.inputs["Strength"].default_value = 0.45
 
 # --------------------------------------------------------------------------
 # 카메라: 정면(남쪽)에서 45도 고각, 정원 전체가 들어오도록 거리 자동 맞춤
@@ -462,7 +462,7 @@ for i in range(400):
 # 렌더 설정 (Cycles: GPU 없는 환경에서도 동작)
 # --------------------------------------------------------------------------
 scene.render.engine = 'CYCLES'
-scene.cycles.samples = 96
+scene.cycles.samples = 64
 try:
     scene.cycles.use_denoising = True
 except AttributeError:
